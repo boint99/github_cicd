@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: 22
+        node-version: 22.x
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -30,4 +30,3 @@ jobs:
     - name: Restart class CI/CD service
       run:
         pm2 restart github_cicd
-        
