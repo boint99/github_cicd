@@ -27,5 +27,4 @@ jobs:
 
       - name: Restart application
         run:
-          pwd
           pm2 start server.js --name github_cicd
