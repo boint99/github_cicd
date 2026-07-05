@@ -26,7 +26,6 @@ jobs:
         run: npm install
 
       - name: Restart application
-        run: |
-          pm2 describe github_cicd >/dev/null \
-            && pm2 restart github_cicd \
-            || pm2 start server.js --name github_cicd
+        run:
+          pwd
+          pm2 start server.js --name github_cicd
