@@ -30,3 +30,4 @@ jobs:
     - name: Restart class CI/CD service
       run:
         pm2 restart github_cicd
+        
