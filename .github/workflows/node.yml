@@ -20,7 +20,13 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm install
+    - run: |
+        npm install
+
+    - name: create file .env
+      run: |
+        touch .env
+        echo "PORT=${{secrets.PORT}}" > .env
     - name: Restart github CI/CD service
       shell: bash
-      run: pm2 restart github-cicd || pm2 start server.js --name "github-cicd"
+      run: pm2 restart github-cicd
