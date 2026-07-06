@@ -29,4 +29,4 @@ jobs:
         echo "PORT=${{secrets.PORT}}" > .env
     - name: Restart github CI/CD service
       shell: bash
-      run: pm2 restart github-cicd
+      run: pm2 restart github-cicd || pm2 start server.js --name "github-cicd"
