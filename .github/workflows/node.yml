@@ -5,8 +5,8 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build-and-push:
-    runs-on: Linux
+  build-and-push-docker-image:
+    runs-on: self-hosted
     steps:
     - uses: actions/checkout@v4
 
@@ -27,8 +27,9 @@ jobs:
         tags: |
           boint99/class-cicd:latest
           boint99/class-cicd:${{ github.sha }}
-  build-docker:
-    runs-on: Linux
+  build-docker-compose:
+    runs-on: linux
+    needs: build-and-push-docker-image
     steps:
     - uses: actions/checkout@v4
 
