@@ -27,3 +27,11 @@ jobs:
         tags: |
           boint99/class-cicd:latest
           boint99/class-cicd:${{ github.sha }}
+  build-docker:
+    runs-on: Linux
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Build and push Docker image
+      run: |
+        docker compose up -d --build

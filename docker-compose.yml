@@ -1,0 +1,9 @@
+services:
+  web:
+    image: boint99/class-cicd:latest
+    container_name: class-cicd
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
